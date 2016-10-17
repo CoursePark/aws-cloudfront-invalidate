@@ -33,12 +33,12 @@ awsCloudfrontInvalidate(distributionId, invalidateList).then((data) => {
 
 ```
 npm install aws-cloudfront-invalidate
-node node_modules/aws-cloudfront-invalidate/cli.js F2V1Y58HE6DIEA
+aws-cloudfront-invalidate F2V1Y58HE6DIEA
 ```
 
 ### General Usage
 
 ```
 npm install aws-cloudfront-invalidate
-node node_modules/aws-cloudfront-invalidate/cli.js F2V1Y58HE6DIEA /app.js /style.css
+aws-cloudfront-invalidate F2V1Y58HE6DIEA /app.js /style.css
 ```
