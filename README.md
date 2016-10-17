@@ -2,6 +2,8 @@
 
 ## Module Usage
 
+_**NOTE**_ This module uses the `aws-sdk` module which will need AWS credentials set, this is usually handled with either a `~/.aws/credentials` file or by setting the `AWS_ACCESS_KEY_ID`, and `AWS_SECRET_ACCESS_KEY` environment variables.
+
 ### Invalidate Everything
 
 ```javascript
