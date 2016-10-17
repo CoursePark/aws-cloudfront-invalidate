@@ -1,0 +1,28 @@
+{
+  "name": "aws-cloudfront-invalidate",
+  "description": "",
+  "version": "0.1.0",
+  "main": "lib.js",
+  "keywords": [
+    "AWS",
+    "CloudFront",
+    "distribution",
+    "invalidate"
+  ],
+  "license": "ISC",
+  "engines": {
+    "node": "^6.3.0",
+    "npm": "^3.10.3"
+  },
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "aws-sdk": "2.6.9"
+  },
+  "devDependencies": {
+    "eslint": "3.8.0",
+    "eslint-config-bluedrop": "2.0.0",
+    "eslint-plugin-strict-newline": "1.2.0"
+  }
+}
