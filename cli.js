@@ -17,7 +17,7 @@ const invalidateList = process.argv.length > 3
 
 awsCloudfrontInvalidate(distribution, invalidateList)
 	.then((data) => {
-		console.log('invalidating created', data.Invalidation.Id); // eslint-disable-line no-console
+		console.log('invalidate created', data.Invalidation.Id); // eslint-disable-line no-console
 	})
 	.catch(console.error) // eslint-disable-line no-console
 ;
