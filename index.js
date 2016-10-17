@@ -1,21 +1,23 @@
 'use strict';
 
-const awsCloudfrontInvalidate = require('./lib.js');
+const AWS = require('aws-sdk');
 
-if (process.argv[2] === undefined) {
-	throw Error('node aws-cloudfront-invalidate/index.js <distribution-id> [<invalidate-1> <invalidate-2> ...]');
-}
-
-const distribution = process.argv[2];
-
-const invalidateList = process.argv.length > 3
-	? process.argv.slice(3)
-	: ['/*'] // default to invalidating everything
-;
-
-awsCloudfrontInvalidate(distribution, invalidateList)
-	.then((data) => {
-		console.log('invalidating created', data.Invalidation.Id); // eslint-disable-line no-console
-	})
-	.catch(console.error) // eslint-disable-line no-console
-;
+module.exports = function (
+	distribution,
+	invalidateList = ['/*'], // default to invalidate everything
+	callerReference = Date.now().toString() // AWS needs a unique value for some reason
+) {
+	return new Promise((resolve, reject) => {
+		const cloudfront = new AWS.CloudFront();
+		cloudfront.createInvalidation({
+			DistributionId: distribution,
+			InvalidationBatch: {
+				CallerReference: callerReference,
+				Paths: {
+					Quantity: invalidateList.length,
+					Items: invalidateList
+				}
+			}
+		}, (err, data) => err && reject(err) || resolve(data));
+	});
+};

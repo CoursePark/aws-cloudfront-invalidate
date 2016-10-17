@@ -2,7 +2,7 @@
   "name": "aws-cloudfront-invalidate",
   "description": "",
   "version": "0.1.0",
-  "main": "lib.js",
+  "main": "index.js",
   "keywords": [
     "AWS",
     "CloudFront",
